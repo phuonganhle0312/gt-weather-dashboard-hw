@@ -15,7 +15,7 @@ $(document).ready(function () { // declared variables
             // CURRENT WEATHER
             $.ajax({url: currentWeather, method: "GET"}).then(function (response) {
                 let icon = response.weather[0].icon;
-                let iconurl = "http://openweathermap.org/img/w/" + icon + ".png";
+                let iconurl = "https://openweathermap.org/img/w/" + icon + ".png";
                 $("#cityName").text(response.name);
                 $(".temperature").text("Temperature: " + (
                     (response.main.temp - 273.15) * 1.8 + 32
@@ -28,7 +28,7 @@ $(document).ready(function () { // declared variables
             uv();
             function uv() {
 
-                let uvUrl = "api.openweathermap.org/data/2.5/uvi?appid=" + apikey + "&lat=" + lat + "&lon=" + long;
+                let uvUrl = "https://api.openweathermap.org/data/2.5/uvi?appid=" + apikey + "&lat=" + lat + "&lon=" + long;
                 $.ajax({url: uvUrl, method: "GET"}).then(function (responseTwo) {
                     $(".uvIndex").text("UV Index :" + responseTwo.uv.index);
 
@@ -75,19 +75,19 @@ $(document).ready(function () { // declared variables
 
                     // icon data for forecats
                     let icon1 = responseThree.list[4].weather[0].icon;
-                    let icon1url = "http://openweathermap.org/img/w/" + icon1 + ".png";
+                    let icon1url = "https://openweathermap.org/img/w/" + icon1 + ".png";
 
                     let icon2 = responseThree.list[4].weather[0].icon;
-                    let icon2url = "http://openweathermap.org/img/w/" + icon2 + ".png";
+                    let icon2url = "https://openweathermap.org/img/w/" + icon2 + ".png";
 
                     let icon3 = responseThree.list[4].weather[0].icon;
-                    let icon3url = "http://openweathermap.org/img/w/" + icon3 + ".png";
+                    let icon3url = "https://openweathermap.org/img/w/" + icon3 + ".png";
 
                     let icon4 = responseThree.list[4].weather[0].icon;
-                    let icon4url = "http://openweathermap.org/img/w/" + icon4 + ".png";
+                    let icon4url = "https://openweathermap.org/img/w/" + icon4 + ".png";
 
                     let icon5 = responseThree.list[4].weather[0].icon;
-                    let icon5url = "http:/www/openweathermap.org/img/w/" + icon5 + ".png";
+                    let icon5url = "https:/www/openweathermap.org/img/w/" + icon5 + ".png";
 
                     // temperature conversion by kevlin
                     let temp1C = (responseThree.list[4].main.temp - 273.15) * 9 / 5 + 32;
