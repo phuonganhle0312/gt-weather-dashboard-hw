@@ -18,7 +18,7 @@
         <div class="row">
             <div class="card w-40">
                 <div class="card-title">
-            <h4 >Search for a City</h4>
+            <h4>Search for a City</h4>
             </div>
             <div class="card-text">
                 <!--Search Bar-->
@@ -37,7 +37,56 @@
             </ul>
         </div>
     </div>
-
+<!--Current Weather Data-->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="todayWeather">
+                <span>
+                    <h2 class="justify-content-center" id="cityName"></h2>
+                    <img id="icon">
+                </span>
+                <div class="temperature"></div>
+                <div class="humidity"></div>
+                <div class="windspeed"></div>
+                <div class="uvIndex"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--5Day Forecast-->
+<div class="row">
+    <div class="col-lg-12" id="forecastBox">
+        <h4>Five Day Weather Forecast</h4>
+        <div class="card-deck text-center">
+            <!--Day1-->
+            <div class="card" style="margin: 2px;">
+                <div class="card-body" id="day1">
+                </div>
+            </div>
+            <!--Day2-->
+            <div class="card" style="margin: 2px;">
+                <div class="card-body" id="day2">
+                </div>
+            </div>
+            <!--Day3-->
+            <div class="card" style="margin: 2px;">
+                <div class="card-body" id="day3">
+                </div>
+            </div>
+            <!--Day4-->
+            <div class="card" style="margin: 2px;">
+                <div class="card-body" id="day4">
+                </div>
+            </div>
+            <!--Day5-->
+            <div class="card" style="margin: 2px;">
+                <div class="card-body" id="day5">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
     
 
 
