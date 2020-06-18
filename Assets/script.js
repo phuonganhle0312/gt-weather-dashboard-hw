@@ -1,6 +1,7 @@
 $(document).ready(function () { // declared variables
     const apikey = "a8ffefde4c3d97d26c0c126fb6117891";
-    let city = "";
+    const searchInput = $("#searchInput");
+    const city= searchInput.val().trim();
     current();
     console.log(current)
     // API calls
@@ -40,7 +41,7 @@ $(document).ready(function () { // declared variables
                 let getCity = localStorage.getItem("citySearch");
                 console.log(getCity);
             }
-            $("button").on("click", function (event) {
+            $("#searchBtn").on("click", function (event) {
                 event.preventDefault();
                 let input = $("#searchInput");
                 let city = input.val().trim();
@@ -65,13 +66,14 @@ $(document).ready(function () { // declared variables
             forecast();
             // 5 DAY FORECAST
             function forecast() {
-                let searchInput = $("#searchInput");
-                let city= searchInput.val().trim();
-                let forecastUrl = "https://api.openweathermap.org/data/2.5/forecast?q=";
-                let queryurl = forecastUrl + city + apikey;
+                let queryurl = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + apikey;
 
                 // Retrieve 5 day forecast data
-                $.ajax({url: queryurl, method: "GET"}).then(function (responseThree) { // icon data for forecats
+                $.ajax({url: queryurl, method: "GET"}).then(function (responseThree) { 
+                    console.log(queryurl)
+                    console.log(responseThree)
+
+                    // icon data for forecats
                     let icon1 = responseThree.list[4].weather[0].icon;
                     let icon1url = "http://openweathermap.org/img/w/" + icon1 + ".png";
 
@@ -85,7 +87,7 @@ $(document).ready(function () { // declared variables
                     let icon4url = "http://openweathermap.org/img/w/" + icon4 + ".png";
 
                     let icon5 = responseThree.list[4].weather[0].icon;
-                    let icon5url = "http://openweathermap.org/img/w/" + icon5 + ".png";
+                    let icon5url = "http:/www/openweathermap.org/img/w/" + icon5 + ".png";
 
                     // temperature conversion by kevlin
                     let temp1C = (responseThree.list[4].main.temp - 273.15) * 9 / 5 + 32;
@@ -108,6 +110,8 @@ $(document).ready(function () { // declared variables
                     let dayThree = responseThree.list[20].dt_txt;
                     let dayFour = responseThree.list[28].dt_txt;
                     let dayFive = responseThree.list[36].dt_txt;
+
+                    console.log(responseThree.list[4].dt_txt)
 
                     // extract part of string & append data
                     $("#day1").html("<h4>" + dayOne.substr(0, 10) + "</h4>")
